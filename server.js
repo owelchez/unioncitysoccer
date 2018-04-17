@@ -1,3 +1,4 @@
+var exphbs = require("express-handlebars");
 var express = require("express");
 var app = express();
 var passport = require("passport");
@@ -27,6 +28,16 @@ app.use(passport.session());
 app.get('/', function(req, res) {
 	res.send('Welcome to my realm suckers!');
 });
+
+// Initialize Handlebars
+app.set('views', './app/views');
+app.engine('hbs', exphbs({
+	extname: '.hbs'
+}));
+app.set('view engine', 'hbs');
+
+// Routes
+var authRoute = require('./app/routes/auth.js')(app);
 
 app.listen(5000, function(err) {
 	if (!err) {
