@@ -37,7 +37,10 @@ app.engine('hbs', exphbs({
 app.set('view engine', 'hbs');
 
 // Routes
-var authRoute = require('./app/routes/auth.js')(app);
+var authRoute = require('./app/routes/auth.js')(app, passport);
+
+// Passport Strategy
+require('./app/config/passport/passport.js')(passport, models.user);
 
 app.listen(5000, function(err) {
 	if (!err) {
