@@ -1,18 +1,11 @@
-var exphbs = require("express-handlebars");
 var express = require("express");
 var app = express();
 var passport = require("passport");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 var env = require("dotenv").load();
-var models = require("./app/models");
+var exphbs = require("express-handlebars");
 
-// Make sure your db connection works
-models.sequelize.sync().then(function() {
-	console.log('Database connection successful!');
-}).catch(function(err) {
-	console.log(err, 'You messed this one up real bad!');
-});
 
 // This will extract the body in a request
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,10 +18,6 @@ app.use(session({	secret: 'mazinger z',
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', function(req, res) {
-	res.send('Welcome to my realm suckers!');
-});
-
 // Initialize Handlebars
 app.set('views', './app/views');
 app.engine('hbs', exphbs({
@@ -36,11 +25,26 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
+app.get('/', function(req, res) {
+	res.send('Welcome to my realm suckers!');
+});
+
+var models = require("./app/models");
+
 // Routes
 var authRoute = require('./app/routes/auth.js')(app, passport);
 
 // Passport Strategy
 require('./app/config/passport/passport.js')(passport, models.user);
+
+
+// Make sure your db connection works
+models.sequelize.sync().then(function() {
+	console.log('Database connection successful!');
+}).catch(function(err) {
+	console.log(err, 'You messed this one up real bad!');
+});
+
 
 app.listen(5000, function(err) {
 	if (!err) {
