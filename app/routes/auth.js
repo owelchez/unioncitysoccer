@@ -9,6 +9,8 @@ module.exports = function(app, passport) {
 
 	app.get('/', authController.home);
 
+	app.get('/pictures', authController.pictures);
+
 	app.get('/logout', authController.logout);
 
 	app.post('/signup', passport.authenticate('local-signup', {
