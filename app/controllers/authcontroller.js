@@ -1,3 +1,4 @@
+// Create a variable with module.exports an empty object as value for brevity
 var exports = module.exports = {}
 
 exports.signup = function(req, res) {
@@ -10,6 +11,10 @@ exports.signin = function(req, res) {
 
 exports.dashboard = function(req, res) {
 	res.render('dashboard');
+}
+
+exports.home = function(req, res) {
+	res.render('home');
 }
 
 exports.logout = function(req, res) {

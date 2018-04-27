@@ -25,10 +25,6 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
-app.get('/', function(req, res) {
-	res.send('Welcome to my realm suckers!');
-});
-
 var models = require("./app/models");
 
 // Routes
