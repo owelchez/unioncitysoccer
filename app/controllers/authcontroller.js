@@ -17,6 +17,10 @@ exports.home = function(req, res) {
 	res.render('home');
 }
 
+exports.pictures = function(req, res) {
+	res.render('pictures');
+}
+
 exports.logout = function(req, res) {
 	req.session.destroy(function(err) {
 		res.redirect('/');
