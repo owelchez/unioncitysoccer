@@ -7,6 +7,8 @@ module.exports = function(app, passport) {
 
 	app.get('/dashboard', isLoggedIn, authController.dashboard);
 
+	app.get('/', authController.home);
+
 	app.get('/logout', authController.logout);
 
 	app.post('/signup', passport.authenticate('local-signup', {
