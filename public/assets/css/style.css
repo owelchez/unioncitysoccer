@@ -1,0 +1,284 @@
+body { 
+  background: url("/static/assets/pictures/soccerBg.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li a {
+	text-decoration: none;
+	border-radius: 5px;
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+
+li {
+	height: 28px;
+	float: left;
+	display: inline;
+	margin-right: 3px;
+}
+
+select {
+	background:rgba(255,255,255,.5);
+	color: black;
+	font-size: 12px;
+	font-weight: bold;
+	box-shadow: 1px 1px 11px #330033;
+	border-radius: 10px;
+}
+
+nav {
+	min-width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+section {
+	margin: 0 auto;
+}
+
+table, th, td {
+	text-align: center;
+    border: 1px solid black;
+}
+
+.container {
+	width: 1024px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.fb-page {
+	border-radius: 5px;
+}
+
+.socialMedia {
+	width: 40px;
+}
+
+.navbar-default {
+	height: 70px;
+	background:rgba(255,255,255,.5);
+	border-width: 1px;
+	border-color: #E7E782;
+	width: 100%;
+}
+
+.text-right {
+	margin-top: 5px;
+}
+
+#errorMessage {
+	float: left;
+	color: red;
+	font-weight: bolder;
+}
+
+#nameHeader {
+	float: left;
+	text-align: center;
+	margin: 10px 15px 10px 15px;
+}
+
+#formName {
+	float: left;
+	margin: 5px 10px 5px 10px;
+}
+
+#loginBox {
+	text-align: center;
+	border-radius: 5px;
+	box-shadow: 5px 10px 5px black;
+	position: fixed;  /*or absolute */
+	background-color: #C1C7C7;
+	top: 25%;
+	left: 40%;
+	width: 150px;
+	height: 100px;
+}
+
+#galleryPics img:hover { 
+    border-color: #330033;
+}
+
+#galleryPics {
+	margin-top: 20px;
+	width: 980px;
+	height: 600px;
+	background: #848c9c;
+	border-radius: 5px;
+}
+
+#imgSection {
+	border: 5px solid #848c9c;
+	margin: 12px;
+	width: 290px;
+}
+
+#footer {
+	/*Credit to Matthew James Taylor*/
+	/*position: absolute;*/
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background:rgba(31,35,39,.9);
+    clear: both;
+}
+
+#fixedFooter {
+	/*Credit to Matthew James Taylor*/
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background:rgba(31,35,39,.9);
+    clear: both;
+}
+
+#copyright {
+	font-size: 12px;
+	color: white;
+	float: left;
+	margin-top: 25px;
+	margin-left: 40px;
+}
+
+#social {
+	font-size: 12px;
+	text-align: center;
+	color: white;
+	float: right;
+	margin-top: 5px;
+	margin-right: 20px;
+}
+
+#topLinks {
+	font-size: 10px;
+	float: right;
+	text-align: center;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+#introduction {
+	float: left;
+	color: white;
+	width: 400px;
+	margin-top: 20px;
+	margin-left: 100px;
+	margin-bottom: 20px;
+}
+
+#titleHeader {
+	float: left;
+	position: relative;
+	font-size: 25px;
+	font-weight: bolder;
+	margin-top: 25px;
+}
+
+#clubLogo {
+	float: left;
+	position: relative;
+	border-radius: 70px;
+	width: 50px;
+	height: 50px;
+	margin: 10px 10px 10px 10px;
+}
+
+#kidsBackground {
+	width: 500px;
+	border-radius: 5px;
+	margin-left: 62px;
+	box-shadow: 10px 10px 3px #000;
+}
+
+#leftPanel {
+	float: left;
+	width: 200px;
+}
+
+#rightPanel {
+	float: right;
+	width: 200px;
+}
+
+#dropMenu {
+	clear: both;
+	width: 99%;
+	margin-bottom: 15px;
+	margin-left: 2px;
+	display: none;
+}
+
+#rowHeight {
+	width: 50%;
+	height: 50px;
+	margin-top: 10px;
+	margin-bottom: 80px;
+	margin-left: 50px;
+	animation-duration: 10s;
+}
+
+#weatherWidgetBottom {
+	border-radius: 5px;
+	margin-top: 50px;
+	margin: 0 auto;
+	float: left;
+	clear: left;
+}
+
+#weatherWidgetBottom div{
+	border-radius: 5px;
+	margin-bottom: 50px;
+	margin-left: 15%;
+}
+
+/********************Media Queries Only********************/
+
+
+/*
+
+@media only screen and (max-width: 1130px ) {
+	
+	#titleHeader {
+		font-size: 15px;
+	}
+
+	#topLinks {
+		padding-top: 30px;
+	}
+}
+
+@media only screen and (max-width: 285px) {
+
+	#titleHeader {
+		font-size: 11px;
+		font-weight: bold;
+		position: inherit;
+		margin-top: 50px;
+	}
+}
+
+@media only screen and (max-width: 920px) {
+	Remove top links in nav and create button for menu
+	#topLinks {
+		display: none;
+	}
+
+	#dropMenu {
+		display: inline;
+	}
+}
+
+*/

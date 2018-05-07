@@ -5,11 +5,13 @@ var session = require("express-session");
 var bodyParser = require("body-parser");
 var env = require("dotenv").load();
 var exphbs = require("express-handlebars");
-
+var path = require('path');
 
 // This will extract the body in a request
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use('/static', express.static(__dirname + '/public'));
 
 // Passport authentication 
 app.use(session({	secret: 'mazinger z',
@@ -40,7 +42,6 @@ models.sequelize.sync().then(function() {
 }).catch(function(err) {
 	console.log(err, 'You messed this one up real bad!');
 });
-
 
 app.listen(5000, function(err) {
 	if (!err) {
