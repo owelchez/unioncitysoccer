@@ -21,6 +21,10 @@ exports.pictures = function(req, res) {
 	res.render('pictures');
 }
 
+exports.register = function(req, res) {
+	res.render('register');
+}
+
 exports.logout = function(req, res) {
 	req.session.destroy(function(err) {
 		res.redirect('/');

@@ -21,6 +21,10 @@ li a {
     background-color: #dddddd;
 }
 
+form li {
+	list-style-type: none;
+}
+
 li {
 	height: 28px;
 	float: left;
@@ -50,6 +54,14 @@ section {
 table, th, td {
 	text-align: center;
     border: 1px solid black;
+}
+
+.formcontainer {
+	margin-top: 50px;
+	color: white;
+	width: 300px;
+	text-align: center;
+	overflow: hidden;
 }
 
 .container {
