@@ -44,18 +44,24 @@ module.exports = function(app, passport) {
 				var routename = newplayer.firstname.replace(/\s+/g, '').toLowerCase();
 				
 				var data = {
+					email: newplayer.email,
 					routename: routename,
-					firstName: newplayer.firstName,
+					firstname: newplayer.firstname,
 					middlename: newplayer.middlename,
-					lastName: newplayer.lastName,
+					lastname: newplayer.lastname,
 					secondlastname: newplayer.secondlastname,
 					dob: newplayer.dob,
+					team: newplayer.team,
 					address: newplayer.address,
-					email: newplayer.email,
-					phoneNumber: newplayer.phoneNumber,
-					emergencyPhoneNumber: newplayer.emergencyPhoneNumber,
-					profilePicture: newplayer.profilePicture,
-					currentTeam: newplayer.currentTeam
+					city: newplayer.city,
+					state: newplayer.state,
+					zipcode: newplayer.zipcode,
+					position: newplayer.position,
+					nickname: newplayer.nickname,
+					phonenumber: newplayer.phonenumber,
+					emergencyphonenumber: newplayer.emergencyphonenumber,
+					about: newplayer.about,
+					profilepicture: newplayer.profilepicture
 				};
 
 				Player.create(data).then(function(newPlayer, created) {
@@ -72,7 +78,7 @@ module.exports = function(app, passport) {
 
 	app.post('/signin', passport.authenticate('local-signin', {
 		successRedirect: '/dashboard',
-		failureRedirect: '/signin'
+		failureRedirect: '//signin'
 	}))
 
 	function isLoggedIn(req, res, next) {
