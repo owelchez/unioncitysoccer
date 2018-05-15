@@ -6,6 +6,12 @@ module.exports = function(sequelize, Sequelize) {
 			primaryKey: true,
 			type: Sequelize.INTEGER
 		},
+		email: {
+			type:Sequelize.TEXT,
+			validate: {
+				isEmail: true
+			}
+		},
 		routename: {
 			type:Sequelize.STRING,
 			notEmpty: true
@@ -30,9 +36,33 @@ module.exports = function(sequelize, Sequelize) {
 			type:Sequelize.DATEONLY,
 			notEmpty: true
 		},
+		team: {
+			type:Sequelize.STRING,
+			notEmpty: false
+		},
 		address: {
 			type:Sequelize.TEXT,
 			notEmpty: true
+		},
+		city: {
+			type:Sequelize.TEXT,
+			notEmpty: true
+		},
+		state: {
+			type:Sequelize.TEXT,
+			notEmpty: true
+		},
+		zipcode: {
+			type:Sequelize.TEXT,
+			notEmpty: true
+		},
+		position: {
+			type:Sequelize.STRING,
+			notEmpty: false
+		},
+		nickname: {
+			type:Sequelize.STRING,
+			notEmpty: false
 		},
 		phonenumber: {
 			type:Sequelize.STRING,
@@ -45,20 +75,6 @@ module.exports = function(sequelize, Sequelize) {
 		profilepicture: {
 			type:Sequelize.STRING,
 			notEmpty: false
-		},
-		currentteam: {
-			type:Sequelize.STRING,
-			notEmpty: false
-		},
-		nickname: {
-			type:Sequelize.TEXT,
-			notEmpty: false
-		},
-		email: {
-			type:Sequelize.TEXT,
-			validate: {
-				isEmail: true
-			}
 		},
 		about: {
 			type:Sequelize.TEXT,
