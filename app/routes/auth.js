@@ -25,7 +25,7 @@ module.exports = function(app, passport) {
 		}
 	));
 
-	app.post('/register/player', function(req, res, done) {
+	app.post('/register/player', function(req, res) {
 		var newplayer = req.body;
 		//console.log("This is req.body " + JSON.stringify(nuevomaje));
 
@@ -35,11 +35,9 @@ module.exports = function(app, passport) {
 			where: {
 				email: email
 			}
-		}).then(function(player) {
+		}).then(player => {
 			if(player) {
-				return done(null, false, {
-					message: 'This player is already registered'
-				});
+				res.json('This player is already registered');
 			} else {
 				var routename = newplayer.firstname.replace(/\s+/g, '').toLowerCase();
 				
@@ -64,14 +62,14 @@ module.exports = function(app, passport) {
 					profilepicture: newplayer.profilepicture
 				};
 
-				Player.create(data).then(function(newPlayer, created) {
+				Player.create(data).then(newPlayer => {
 					if(!newPlayer) {
-						return done(null, false);
-					}
+						res.json("Player not created");
+					} 
 					if(newPlayer) {
-						return done(null, newPlayer);
+						res.json("Player has been created");
 					}
-				});
+				})
 			}
 		});
 	});
