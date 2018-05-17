@@ -68,7 +68,7 @@ module.exports = function(sequelize, Sequelize) {
 			type:Sequelize.STRING,
 			notEmpty: true
 		},
-		emergencynumber: {
+		emergencyphonenumber: {
 			type:Sequelize.STRING,
 			notEmpty: true
 		},
