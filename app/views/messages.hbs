@@ -1,0 +1,21 @@
+<div>
+	{{#if flash.alert}}
+		<div class="alert alert-danger" role="alert">
+		<p><strong>{{ flash.alert }}</strong> </p>
+		</div>
+	{{/if}}
+</div>
+<div>
+	{{#if flash.warning}}
+			<div class="alert alert-danger" role="alert">
+			<p><strong>{{ flash.warning }}</strong> </p>
+			</div>
+	{{/if}}
+</div>
+<div>
+	{{#if flash.success}}
+			<div class="alert alert-success" role="alert">
+			<p><strong>{{ flash.success }}</strong> </p>
+			</div>
+	{{/if}}
+</div>

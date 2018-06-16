@@ -22,7 +22,8 @@ exports.pictures = function(req, res) {
 }
 
 exports.register = function(req, res) {
-	res.render('register');
+	//Here we make a flash message available for register view
+	res.render('register', {flash: {alert: req.flash('alert')}});
 }
 
 exports.logout = function(req, res) {
