@@ -21,9 +21,14 @@ exports.pictures = function(req, res) {
 	res.render('pictures');
 }
 
-exports.register = function(req, res) {
+// The below it's in case I want to use req.flash messages
+/*exports.register = function(req, res) {
 	//Here we make a flash message available for register view
 	res.render('register', {flash: {alert: req.flash('alert')}});
+}*/
+
+exports.register = function(req, res) {
+	res.render('register', { sessionFlash: res.locals.sessionFlash });
 }
 
 exports.logout = function(req, res) {
