@@ -37,7 +37,10 @@ module.exports = function(app, passport) {
 			}
 		}).then(player => {
 			if(player) {
-				req.flash('alert', 'This email address is already registered!');
+				req.session.sessionFlash = {
+        			type: 'alert alert-danger',
+        			message: 'This email address is already registered!.'
+    			}
 				res.redirect('/register/');
 			} else {
 				var routename = newplayer.firstname.replace(/\s+/g, '').toLowerCase();
@@ -65,12 +68,18 @@ module.exports = function(app, passport) {
 
 				Player.create(data).then(newPlayer => {
 					if(!newPlayer) {
-						req.flash('warning', 'The player could not be registered.');
+						req.session.sessionFlash = {
+        					type: 'alert alert-warning',
+        					message: 'Something went wrong!.'
+    					}
 						res.redirect('/register/');
 						//res.json("Player not created");
 					} 
 					if(newPlayer) {
-						req.flash('success', 'The player has been registered.');
+						req.session.sessionFlash = {
+        					type: 'alert alert-success',
+        					message: 'The player has been registered!.'
+    					}
 						res.redirect('/register/');
 						//res.json("Player has been created");
 					}

@@ -15,26 +15,12 @@
     	<h1 class="well">Registration Form</h1>
 
     	<div>
-			{{#if flash.alert}}
-				<div class="alert alert-danger" role="alert">
-				<p><strong>{{ flash.alert }}</strong> </p>
-				</div>
+    		{{#if sessionFlash.message}}
+    			<div class="{{ sessionFlash.type }}">
+        			<strong> {{ sessionFlash.message }} </strong>
+    			</div>
 			{{/if}}
-		</div>
-		<div>
-			{{#if flash.warning}}
-					<div class="alert alert-danger" role="alert">
-					<p><strong>{{ flash.warning }}</strong> </p>
-					</div>
-			{{/if}}
-		</div>
-		<div>
-			{{#if flash.success}}
-					<div class="alert alert-success" role="alert">
-					<p><strong>{{ flash.success }}</strong> </p>
-					</div>
-			{{/if}}
-		</div>
+    	</div>
 		
 		<div class="col-lg-12 well">
 			<div class="row">
