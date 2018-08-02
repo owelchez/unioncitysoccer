@@ -45,26 +45,26 @@ module.exports = function(app, passport) {
 			} else {
 				var routename = newplayer.firstname.replace(/\s+/g, '').toLowerCase();
 				
-				var data = {
-					email: newplayer.email,
-					routename: routename,
-					firstname: newplayer.firstname,
-					middlename: newplayer.middlename,
-					lastname: newplayer.lastname,
-					secondlastname: newplayer.secondlastname,
-					dob: newplayer.dob,
-					team: newplayer.team,
-					address: newplayer.address,
-					city: newplayer.city,
-					state: newplayer.state,
-					zipcode: newplayer.zipcode,
-					position: newplayer.position,
-					nickname: newplayer.nickname,
-					phonenumber: newplayer.phonenumber,
-					emergencyphonenumber: newplayer.emergencyphonenumber,
-					about: newplayer.about,
-					profilepicture: newplayer.profilepicture
-				};
+				var data = new TeamPlayer(
+					newplayer.email,
+					routename,
+					newplayer.firstname,
+					newplayer.middlename,
+					newplayer.lastname,
+					newplayer.secondlastname,
+					newplayer.dob,
+					newplayer.team,
+					newplayer.address,
+					newplayer.city,
+					newplayer.state,
+					newplayer.zipcode,
+					newplayer.position,
+					newplayer.nickname,
+					newplayer.phonenumber,
+					newplayer.emergencyphonenumber,
+					newplayer.about,
+					newplayer.profilepicture
+				);
 
 				Player.create(data).then(newPlayer => {
 					if(!newPlayer) {
@@ -97,5 +97,36 @@ module.exports = function(app, passport) {
 		if(req.isAuthenticated())
 			return next();
 			res.redirect('/signin');
+	}
+}
+
+class TeamPlayer {
+	constructor(email,routename,firstname,middlename,lastname,secondlastname,
+				dob,team,address,city,state,zipcode,position,nickname,
+				phonenumber,emergencyphonenumber,about,profilepicture
+	) {
+		this.email = email;
+		this.routename = routename;
+		this.firstname = firstname;
+		this.middlename = middlename;
+		this.lastname = lastname;
+		this.secondlastname = secondlastname;
+		this.dob = dob;
+		this.team = team;
+		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zipcode = zipcode;
+		this.position = position;
+		this.nickname = nickname;
+		this.phonenumber = phonenumber;
+		this.emergencyphonenumber = emergencyphonenumber;
+		this.about = about;
+		this.profilepicture = profilepicture;
+	}
+
+	// The below will simply return Player's name.
+	getName() {
+		return this.firstname + ' ' + this.lastname;
 	}
 }
