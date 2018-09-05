@@ -1,76 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Union City Soccer Club</title>
-
-	<script type='text/javascript' src='package/unitegallery/js/jquery-11.0.min.js'></script>	
-	<script type='text/javascript' src='package/unitegallery/js/unitegallery.min.js'></script>	
-
-	<link rel='stylesheet' href='package/unitegallery/css/unite-gallery.css' type='text/css' />
-	
-	<script type='text/javascript' src='package/unitegallery/themes/default/ug-theme-default.js'></script>
-	<link rel='stylesheet' 		  href='package/unitegallery/themes/default/ug-theme-default.css' type='text/css' />
-
-	<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-	<link rel="icon" type="image/png" href="../favicon.png">
-
-</head>
-<body>
-
-	<nav class="navbar navbar-default">
-  		<div class="container-fluid">
-    		<div class="navbar-header">
-    			<div>
-	      			<a class="navbar-brand" href="/">
-	        			<img id="clubLogo" alt="Brand" src="./assets/pictures/unionCityLogo.jpeg">
-	      			</a>
-      			</div>
-
-      			<span id="titleHeader">UNION CITY SOCCER CLUB</span>
-      			
-    		</div>
-  		</div>
-
-  				<div id="topLinks">
-      				<ul>
-						<li><a href="/">HOME</a></li>
-
-						<li><a href="/recreation">RECREATION 2017</a></li>
-
-						<li><a href="/adultSoccer">ADULT SOCCER</a></li>
-
-						<li><a href="/pictures">PICTURES</a></li>
-
-						<li><a href="/travelingCoaches">TRAVELING COACHES</a></li>
-
-						<li><a href="/soccerRec">SOCCER REC</a></li>
-
-						<li><a href="/contact">CONTACT</a></li>
-
-						<li><a href="/about">ABOUT</a></li>
-					</ul>
-      			</div>
-      			
-	</nav>
-
-	<div>
-	  		<select id="dropMenu">
-	  			<option><a href="/">HOME</a></option>
-				<option><a href="/recreation">RECREATION 2017</a></option>
-				<option><a href="/adultSoccer">ADULT SOCCER</a></option>
-				<option><a href="/pictures">PICTURES</a></option>
-				<option><a href="/travelingCoaches">TRAVELING COACHES</a></option>
-				<option><a href="/soccerRec">SOCCER REC</a></option>
-				<option><a href="/contact">CONTACT</a></option>
-				<option><a href="/about">ABOUT</a></option>
-			</select>
-	</div>
-
-	
-
-				
+{{>navbar}}
 
 <h2>Picture Gallery</h2>
 
@@ -196,28 +124,15 @@
 	</div>
 </div>	
 
-	<div id="fixedFooter">
-		<!-- Credits to Matthew James Taylor -->
-		<div id="copyright">
-			<p>&#169 2017 UNION CITY SOCCER CLUB</p>
-		</div>
+{{>footer}}
 
-		<div id="social">
-			<p>FOLLOW US ON</p>
-			<a href="https://www.facebook.com/UnionCitySoccer/" target="_blank"><img class="socialMedia" src="./assets/pictures/fb.png" alt="Facebook"></a>
-			<a href="https://twitter.com/UnionCitySC" target="_blank"><img class="socialMedia" src="./assets/pictures/tw.png" alt="Twitter"></a>
-		</div>
-	</div>
-
-<!-- These are my jquery, bootstrap and index js files -->
-	<script src="./assets/bootstrap/bootstrap.min.js"></script>
-
-	<script type="text/javascript">
+<!-- 
+<script type="text/javascript">
 		jQuery(document).ready(function(){
 			jQuery("#gallery").unitegallery();
 		});
 		
-	</script>
-
+</script>
+ -->
 </body>
 </html>

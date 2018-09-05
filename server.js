@@ -38,13 +38,6 @@ app.use(function(req, res, next){
     next();
 });
 
-// Initialize Handlebars
-app.set('views', './app/views');
-app.engine('hbs', exphbs({
-	extname: '.hbs'
-}));
-app.set('view engine', 'hbs');
-
 var models = require("./app/models");
 
 // Routes
@@ -52,6 +45,20 @@ var authRoute = require('./app/routes/auth.js')(app, passport);
 
 // Passport Strategy
 require('./app/config/passport/passport.js')(passport, models.user);
+
+// Initialize Handlebars
+app.engine('hbs', 
+    exphbs({
+	extname: 'hbs',
+    defaultLayout: 'layout', // This is the name of file inside layouts folder
+    layoutsDir: __dirname + '/views/layouts/',
+    partialsDir: [
+        __dirname + '/views/partials/',
+    ]
+}));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 
 // Make sure your db connection works
 models.sequelize.sync().then(function() {
@@ -67,3 +74,9 @@ app.listen(5000, function(err) {
 		console.log(err);
 	}
 })
+
+
+/*
+Includes (Partials)
+Includes or partials templates in Handlebars are interpreted by the {{>partial_name}} expression. Partials are akin to helpers and are registered with Handlebars.registerPartial(name, source), where name is a string and source is a Handlebars template code for the partial.
+*/

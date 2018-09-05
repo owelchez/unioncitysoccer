@@ -2,23 +2,23 @@
 var exports = module.exports = {}
 
 exports.signup = function(req, res) {
-	res.render('signup');
+	res.render('signup', { title: 'Union City Soccer Club' });
 }
 
 exports.signin = function(req, res) {
-	res.render('signin');
+	res.render('signin', { title: 'Union City Soccer Club' });
 }
 
 exports.dashboard = function(req, res) {
-	res.render('dashboard');
+	res.render('dashboard', { title: 'Union City Soccer Club' });
 }
 
 exports.home = function(req, res) {
-	res.render('home');
+	res.render('home', { title: 'Union City Soccer Club' });
 }
 
 exports.pictures = function(req, res) {
-	res.render('pictures');
+	res.render('pictures', { title: 'Union City Soccer Club' });
 }
 
 // The below it's in case I want to use req.flash messages
