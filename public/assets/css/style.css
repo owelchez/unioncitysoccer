@@ -139,7 +139,7 @@ table, th, td {
 
 #footer {
 	/*Credit to Matthew James Taylor*/
-	/*position: absolute;*/
+	position: fixed;
     bottom: 0;
     width: 100%;
     height: 60px;
