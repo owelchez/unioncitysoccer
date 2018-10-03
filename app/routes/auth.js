@@ -19,6 +19,10 @@ module.exports = function(app, passport) {
 
 	app.get('/register', authController.register);
 
+	app.get('/contact', authController.contact);
+
+	app.get('/about', authController.about);
+
 	app.post('/signup', passport.authenticate('local-signup', {
 		successRedirect: '/signin',
 		failureRedirect: '/signup'

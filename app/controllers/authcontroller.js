@@ -21,6 +21,14 @@ exports.pictures = function(req, res) {
 	res.render('pictures', { title: 'Union City Soccer Club' });
 }
 
+exports.contact = function(req, res) {
+	res.render('contact', { title: 'Union City Soccer Club'});
+}
+
+exports.about = function(req, res) {
+	res.render('about', { title: 'Union City Soccer Club'});
+}
+
 // The below it's in case I want to use req.flash messages
 /*exports.register = function(req, res) {
 	//Here we make a flash message available for register view
