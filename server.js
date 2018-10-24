@@ -8,6 +8,20 @@ var env = require("dotenv").load();
 var flash = require('express-flash');
 var exphbs = require("express-handlebars");
 var path = require('path');
+var PORT = process.env.PORT || 5000;
+
+var mysql = require('mysql');
+var connection = mysql.createConnection(process.env.JAWSDB_URL);
+
+connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+    if (err) throw err;
+
+    console.log('The solution is: ' + rows[0].solution);
+});
+
+
 
 var sessionStore = new session.MemoryStore;
 
@@ -74,13 +88,15 @@ models.sequelize.sync().then(function() {
 	console.log(err, 'You messed this one up real bad!');
 });
 
-app.listen(5000, function(err) {
+app.listen(PORT, function(err) {
 	if (!err) {
 		console.log('Listening to your beat! Server running');
 	} else {
 		console.log(err);
 	}
 })
+
+
 
 
 /*
