@@ -1,4 +1,5 @@
 var express = require("express");
+var Sequelize = require('sequelize');
 var cookieParser = require('cookie-parser');
 var app = express();
 var passport = require("passport");
@@ -9,6 +10,7 @@ var flash = require('express-flash');
 var exphbs = require("express-handlebars");
 var path = require('path');
 var PORT = process.env.PORT || 5000;
+
 
 var mysql = require('mysql');
 var connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -22,8 +24,9 @@ connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
 });
 
 
+var SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-var sessionStore = new session.MemoryStore;
+//var sessionStore = new session.MemoryStore;
 
 // This will extract the body in a request
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,10 +35,13 @@ app.use(bodyParser.json());
 app.use('/static', express.static(__dirname + '/public'));
 
 // Passport authentication 
-app.use(cookieParser('mazingerz'));
+app.use(cookieParser());
 app.use(session({
+    secret: 'mazingerz',
     cookie: { maxAge: 60000 },
-    store: sessionStore,
+   /* store: new SequelizeStore({
+        db: sequelize
+    }),*/
     saveUninitialized: true,
     resave: 'true',
     secret: 'secret'
