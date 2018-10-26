@@ -9,23 +9,30 @@ var env = require("dotenv").load();
 var flash = require('express-flash');
 var exphbs = require("express-handlebars");
 var path = require('path');
+//var db = require('./models/index');
 var PORT = process.env.PORT || 5000;
 
-
+/*
 var mysql = require('mysql');
 var connection = mysql.createConnection(process.env.JAWSDB_URL);
-
 connection.connect();
-
 connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
     if (err) throw err;
 
     console.log('The solution is: ' + rows[0].solution);
 });
-
+*/
 
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+var sequelize = new Sequelize(
+    process.env.JAWSDB_DATABASE,
+    process.env.JAWSDB_USERNAME,
+    process.env.JAWSDB_PASSWORD, {
+    "dialect": "sqlite",
+    "storage": "./session.sqlite"
+});
+ 
 //var sessionStore = new session.MemoryStore;
 
 // This will extract the body in a request
@@ -39,9 +46,9 @@ app.use(cookieParser());
 app.use(session({
     secret: 'mazingerz',
     cookie: { maxAge: 60000 },
-   /* store: new SequelizeStore({
+    store: new SequelizeStore({
         db: sequelize
-    }),*/
+    }),
     saveUninitialized: true,
     resave: 'true',
     secret: 'secret'
