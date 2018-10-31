@@ -1,39 +1,30 @@
 var express = require("express");
-var Sequelize = require('sequelize');
 var cookieParser = require('cookie-parser');
 var app = express();
 var passport = require("passport");
 var session = require("express-session");
+var SessionStore = require('express-session-sequelize')(session.Store);
 var bodyParser = require("body-parser");
 var env = require("dotenv").load();
 var flash = require('express-flash');
 var exphbs = require("express-handlebars");
 var path = require('path');
-//var db = require('./models/index');
 var PORT = process.env.PORT || 5000;
 
-/*
-var mysql = require('mysql');
-var connection = mysql.createConnection(process.env.JAWSDB_URL);
-connection.connect();
-connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-    if (err) throw err;
 
-    console.log('The solution is: ' + rows[0].solution);
-});
-*/
-
-var SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-var sequelize = new Sequelize(
+var Sequelize = require('sequelize');
+var myDatabase = new Sequelize(
     process.env.JAWSDB_DATABASE,
     process.env.JAWSDB_USERNAME,
     process.env.JAWSDB_PASSWORD, {
-    "dialect": "sqlite",
-    "storage": "./session.sqlite"
+        host: process.env.JAWSDB_HOST,
+        dialect: 'mysql'
 });
  
-//var sessionStore = new session.MemoryStore;
+var sequelizeSessionStore = new SessionStore({
+    db: myDatabase
+});
+
 
 // This will extract the body in a request
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -44,14 +35,11 @@ app.use('/static', express.static(__dirname + '/public'));
 // Passport authentication 
 app.use(cookieParser());
 app.use(session({
-    secret: 'mazingerz',
+    secret: 'mazingerz', // I need to move this to environment variable
     cookie: { maxAge: 60000 },
-    store: new SequelizeStore({
-        db: sequelize
-    }),
-    saveUninitialized: true,
-    resave: 'true',
-    secret: 'secret'
+    store: sequelizeSessionStore,
+    saveUninitialized: false,
+    resave: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
