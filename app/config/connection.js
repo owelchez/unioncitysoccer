@@ -1,14 +1,14 @@
+var env = require('dotenv').config();
 var Sequelize = require('sequelize');
 
 var path = require("path");
 var operatorsAliases = require('../config/alias.js');
 var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";
-var config = require(path.join(__dirname, '..', 'config', 'config.js'))[env];
 var connection = new Sequelize(
-				config.database, 
-				config.username, 
-				config.password, {
+				process.env.JAWSDB_DATABASE,
+				process.env.JAWSDB_USERNAME,
+				process.env.JAWSDB_PASSWORD, {
 					host: process.env.JAWSDB_HOST,
 					dialect: process.env.DIALECT,
 					operatorsAliases: operatorsAliases
