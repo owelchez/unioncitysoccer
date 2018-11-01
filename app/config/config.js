@@ -40,7 +40,7 @@ module.exports = {
  
         "host": process.env.JAWSDB_HOST,
  
-        "dialect": "mysql"
+        "dialect": process.env.DIALECT
  
     }
  
