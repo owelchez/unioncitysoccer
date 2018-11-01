@@ -11,18 +11,24 @@ var exphbs = require("express-handlebars");
 var path = require('path');
 var PORT = process.env.PORT || 5000;
 
-
+/*
 var Sequelize = require('sequelize');
+var operatorsAliases = require('./app/config/alias.js');
 var myDatabase = new Sequelize(
     process.env.JAWSDB_DATABASE,
     process.env.JAWSDB_USERNAME,
     process.env.JAWSDB_PASSWORD, {
-        host: process.env.JAWSDB_HOST,
-        dialect: 'mysql'
+            host: process.env.JAWSDB_HOST,
+            dialect: 'mysql',
+            operatorsAliases: operatorsAliases
 });
  
+*/ 
+
+var connection = require('./app/config/connection.js');
+
 var sequelizeSessionStore = new SessionStore({
-    db: myDatabase
+    db: connection
 });
 
 
