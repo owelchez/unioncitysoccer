@@ -9,7 +9,7 @@ var env = require("dotenv").load();
 var flash = require('express-flash');
 var exphbs = require("express-handlebars");
 var path = require('path');
-var PORT = process.env.PORT || 5000;
+var PORT = process.env.PORT || 8080;
 
 /*
 var Sequelize = require('sequelize');

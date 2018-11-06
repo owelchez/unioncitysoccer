@@ -1,4 +1,5 @@
-var authController = require('../controllers/authController.js');
+var path = require("path");
+var authController = require('./../controllers/authController.js');
 var passport = require("passport");
 var sequelize = require('sequelize');
 var Player = require('../models')['Player'];
