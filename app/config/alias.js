@@ -36,8 +36,7 @@ var operatorsAliases = {
   $any: Op.any,
   $all: Op.all,
   $values: Op.values,
-  $col: Op.col,
-  dialect: 'mysql'
+  $col: Op.col
 };
 
 module.exports = operatorsAliases;
