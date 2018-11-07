@@ -2,7 +2,7 @@ var env = require('dotenv').config();
 var Sequelize = require('sequelize');
 
 var path = require("path");
-var operatorsAliases = require('../config/alias.js');
+var operatorsAliases = require('./alias.js');
 var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";
 var connection = new Sequelize(
