@@ -3,4 +3,4 @@ node_modules
 app/config/config.json
 .DS_Store
 vendor/
-app.yaml
+/app.yaml
